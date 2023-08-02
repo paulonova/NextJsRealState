@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 import client from "client";
 
-export default function Home(props) {
-  console.log('Props:', props)
-  return <div>Next JS &amp; WordPress course2.</div>;
+export default function Home(data) {
+  console.log('Props:', data)
+  return <div>Next JS &amp; WordPress course.</div>;
 }
 
 
@@ -22,8 +22,7 @@ export const getStaticProps = async () =>{
   })
   return{
     props: {
-      data,
-      myexampleprops: 'test'
+      data
     }
   }
 }
