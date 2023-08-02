@@ -3,7 +3,7 @@ import client from "client";
 
 export default function Home(props) {
   console.log('Props:', props)
-  return <div>Next JS &amp; WordPress course.</div>;
+  return <div>Next JS &amp; WordPress course2.</div>;
 }
 
 
