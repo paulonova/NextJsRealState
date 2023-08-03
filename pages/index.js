@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import client from "client";
 
-export default function Home(data) {
+const Home = (data) => {
   console.log('Props:', data)
   return <div>Next JS &amp; WordPress course.</div>;
 }
@@ -26,3 +26,5 @@ export const getStaticProps = async () =>{
     }
   }
 }
+
+export default Home;
