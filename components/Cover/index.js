@@ -9,7 +9,7 @@ const Cover = ({ children, background }) => {
         fill
         className="mix-blend-soft-light object-cover"
       />
-      {children}
+      <div className="max-w-5xl z-10">{children}</div>
     </div>
   )
 }
