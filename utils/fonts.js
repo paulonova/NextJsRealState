@@ -1,3 +1,9 @@
+/**
+ *
+ * To return TailwindCSS classes, I must set this folder in
+ * the tailwind.config.js in the content: otherwise it will not work..
+ */
+
 export const getTextAlign = (textAlign = 'left') => {
   const textAlignMap = {
     left: 'text-left',

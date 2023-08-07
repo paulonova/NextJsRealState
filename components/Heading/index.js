@@ -5,7 +5,7 @@ import { getFontSizeForHeading, getTextAlign } from 'utils/fonts'
  * textAlign, content, level are info that comes from Wordpress
  * via API and I want to define them!
  */
-const Heading = ({ textAlign, content, level }) => {
+const Heading = ({ textAlign, content, level = 2 }) => {
   // Create a tag according to the Wordpress API
   const tag = React.createElement(`h${level}`, {
     dangerouslySetInnerHTML: { __html: content },
