@@ -7,7 +7,14 @@ const BlockRenderer = ({ blocks }) => {
   return blocks.map((block) => {
     switch (block.name) {
       case 'core/heading': {
-        return <Heading key={block.id} />
+        return (
+          <Heading
+            level={block.attributes.level}
+            textAlign={block.attributes.textAlign}
+            content={block.attributes.content}
+            key={block.id}
+          />
+        )
       }
       case 'core/cover': {
         console.log('BLOCK: ', block)
