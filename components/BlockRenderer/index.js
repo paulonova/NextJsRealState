@@ -2,10 +2,26 @@
 
 import Cover from 'components/Cover'
 import Heading from 'components/Heading'
+import Paragraph from 'components/Paragraph'
+import { theme } from 'theme'
 
 const BlockRenderer = ({ blocks }) => {
   return blocks.map((block) => {
     switch (block.name) {
+      case 'core/paragraph': {
+        return (
+          <Paragraph
+            level={block.attributes.level}
+            textColor={
+              theme[block.attributes.textColor] ||
+              block.attributes.style?.color?.text
+            }
+            textAlign={block.attributes.align}
+            content={block.attributes.content}
+            key={block.id}
+          />
+        )
+      }
       case 'core/heading': {
         return (
           <Heading
