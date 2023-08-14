@@ -1,49 +1,15 @@
 import { gql } from '@apollo/client'
 import client from 'client'
 import BlockRenderer from 'components/BlockRenderer'
-import cleanAndTransformBlocks from 'utils/cleanAndTransformBlocks'
-
-const Page = (props) => {
-  console.log('PROPS PAGE: ', props)
-  return (
-    <div>
-      <BlockRenderer blocks={props.blocks} />
-    </div>
-  )
-}
+import Page from 'components/Page'
+import { getPageStaticProps } from 'utils/getPageStaticProps'
 
 export default Page
 
 /**
  * getStaticProps needs to be here because of getStaticPaths
  */
-export const getStaticProps = async (context) => {
-  console.log('CONTEXT: ', context)
-  const uri = `/${context.params.slug.join('/')}/`
-  console.log('URI: ', uri)
-  const { data } = await client.query({
-    query: gql`
-      query PageQuery($uri: String!) {
-        nodeByUri(uri: $uri) {
-          ... on Page {
-            id
-            title
-            blocks
-          }
-        }
-      }
-    `,
-    variables: {
-      uri,
-    },
-  })
-  return {
-    props: {
-      blocks: cleanAndTransformBlocks(data.nodeByUri.blocks),
-      title: data.nodeByUri.title,
-    },
-  }
-}
+export const getStaticProps = getPageStaticProps
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({

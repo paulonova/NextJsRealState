@@ -1,5 +1,3 @@
-//export {BlockRenderer} from './BlockRenderer';
-
 import Cover from 'components/Cover'
 import Heading from 'components/Heading'
 import Paragraph from 'components/Paragraph'
