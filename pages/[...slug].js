@@ -1,14 +1,10 @@
 import { gql } from '@apollo/client'
 import client from 'client'
-import BlockRenderer from 'components/BlockRenderer'
-import Page from 'components/Page'
+import { Page } from 'components/Page'
 import { getPageStaticProps } from 'utils/getPageStaticProps'
 
 export default Page
 
-/**
- * getStaticProps needs to be here because of getStaticPaths
- */
 export const getStaticProps = getPageStaticProps
 
 export const getStaticPaths = async () => {

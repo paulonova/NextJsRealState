@@ -1,7 +1,8 @@
-import BlockRenderer from '@components/BlockRenderer'
-import MainMenu from '@components/Menu'
+import BlockRenderer from 'components/BlockRenderer'
+import MainMenu from 'components/Menu'
 
-const Page = ({
+export const Page = ({
+  blocks,
   mainMenuItems,
   callToActionLabel,
   callToActionDestination,
@@ -17,5 +18,3 @@ const Page = ({
     </div>
   )
 }
-
-export default Page
