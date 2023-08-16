@@ -3,7 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['hot-dang-home.local'],
+    domains: [process.env.NEXT_PUBLIC_WP_IMAGES_URL],
   },
 }
 

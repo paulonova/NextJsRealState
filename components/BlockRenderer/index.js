@@ -8,7 +8,6 @@ const BlockRenderer = ({ blocks }) => {
   return blocks.map((block) => {
     switch (block.name) {
       case 'acf/ctabutton': {
-        console.log('UNKNOWN: ', block)
         return (
           <CallToActionButton
             key={block.id}
