@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
   })
 
   return {
-    paths: data.pages.nodes
+    paths: data?.pages?.nodes
       .filter((page) => page.uri !== '/')
       .map((page) => ({
         params: {
