@@ -4,7 +4,6 @@ import cleanAndTransformBlocks from 'utils/cleanAndTransformBlocks'
 import { mapMainMenuItems } from 'utils/mapMainMenuItems'
 
 export const getPageStaticProps = async (context) => {
-  console.log('CONTEXT: ', context)
   const uri = context.params?.slug ? `/${context.params.slug.join('/')}/` : '/'
 
   const { data } = await client.query({

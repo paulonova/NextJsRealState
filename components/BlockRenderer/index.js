@@ -21,7 +21,6 @@ const BlockRenderer = ({ blocks }) => {
         )
       }
       case 'core/columns': {
-        console.log('UNKNOWN: ', block)
         return (
           <Columns
             key={block.id}
@@ -76,8 +75,12 @@ const BlockRenderer = ({ blocks }) => {
           />
         )
       }
+      case 'core/block':
+      case 'core/group': {
+        console.log('UNKNOWN: ', block)
+        return <BlockRenderer key={block.id} blocks={block.innerBlocks} />
+      }
       case 'core/cover': {
-        console.log('BLOCK: ', block)
         return (
           <Cover key={block.id} background={block.attributes.url}>
             {/* To render any innerBlocks inside of the "core/cover" */}
