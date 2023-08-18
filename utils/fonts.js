@@ -24,5 +24,5 @@ export const getFontSizeForHeading = (level) => {
     6: 'text-xl',
   }
 
-  return `${fontSizeMap[level]}`
+  return `${fontSizeMap[level] || ''}`
 }
