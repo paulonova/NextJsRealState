@@ -43,6 +43,7 @@ const BlockRenderer = ({ blocks }) => {
         )
       }
       case 'core/image': {
+        console.log('IMAGE: ', block.attributes.url)
         return (
           <Image
             key={block.id}

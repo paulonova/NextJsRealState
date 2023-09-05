@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+##
+
+## PAGINATION
+
+Install first the plugin <a href="https://github.com/valu-digital/wp-graphql-offset-pagination">wp-graphql-offset-pagination</a>
+
+<p>In GraphQl select pageInfo and total (to show how many properties do we have) then I divide this total by the amount properties I want to display. ex: display 3 per page and we have 6 properties, then we will have 6 / 3 = 2 pages to paginate...</p>
+
+<hr>
 ## Getting Started
 
 First, run the development server:
