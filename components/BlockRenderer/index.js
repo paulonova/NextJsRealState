@@ -4,10 +4,12 @@ import Columns from 'components/Columns'
 import Cover from 'components/Cover'
 import Heading from 'components/Heading'
 import Paragraph from 'components/Paragraph'
+import PropertySearch from 'components/PropertySearch'
 import Image from 'next/image'
 import { theme } from 'theme'
 
 const BlockRenderer = ({ blocks }) => {
+  console.log('BLOCKS: ', blocks)
   return blocks.map((block) => {
     switch (block.name) {
       case 'acf/ctabutton': {
@@ -41,6 +43,7 @@ const BlockRenderer = ({ blocks }) => {
         )
       }
       case 'core/image': {
+        console.log('IMAGE: ', block.attributes.url)
         return (
           <Image
             key={block.id}
@@ -51,6 +54,7 @@ const BlockRenderer = ({ blocks }) => {
           />
         )
       }
+
       case 'core/paragraph': {
         return (
           <Paragraph
@@ -65,6 +69,7 @@ const BlockRenderer = ({ blocks }) => {
           />
         )
       }
+      case 'core/post-title':
       case 'core/heading': {
         return (
           <Heading
@@ -77,8 +82,10 @@ const BlockRenderer = ({ blocks }) => {
       }
       case 'core/block':
       case 'core/group': {
-        console.log('UNKNOWN: ', block)
         return <BlockRenderer key={block.id} blocks={block.innerBlocks} />
+      }
+      case 'acf/propertysearch': {
+        return <PropertySearch key={block.id} />
       }
       case 'core/cover': {
         return (
