@@ -1,5 +1,6 @@
 import Input from 'components/Input';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import queryString from 'query-string';
 
 const Filters = ({ onSearch }) => {
   const [petFriendly, setPetFriendly] = useState(false);
@@ -15,6 +16,25 @@ const Filters = ({ onSearch }) => {
       maxPrice,
     });
   };
+
+  /**
+   * queryString get all info from search url
+   * and populate the fields.
+   * This prevent when reload the page to loose
+   * the values of the searching fields.
+   */
+  useEffect(() => {
+    const {
+      petFriendly: petFriendlyInitials,
+      hasParking: hasParkingInitials,
+      minPrice: minPriceInitials,
+      maxPrice: maxPriceInitials,
+    } = queryString.parse(window.location.search);
+    setPetFriendly(petFriendlyInitials === 'true');
+    setHasParking(hasParkingInitials === 'true');
+    setMinPrice(minPriceInitials || '');
+    setMaxPrice(maxPriceInitials || '');
+  }, []);
 
   return (
     <div className="max-w-5xl mx-auto my-5 flex gap-5 border-solid border-slate-400 border-2 p-5 rounded-md items-center">
