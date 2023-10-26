@@ -1,17 +1,41 @@
-import CallToActionButton from 'components/CallToActionButton'
-import Column from 'components/Column'
-import Columns from 'components/Columns'
-import Cover from 'components/Cover'
-import Heading from 'components/Heading'
-import Paragraph from 'components/Paragraph'
-import PropertySearch from 'components/PropertySearch'
-import Image from 'next/image'
-import { theme } from 'theme'
+import CallToActionButton from 'components/CallToActionButton';
+import Column from 'components/Column';
+import Columns from 'components/Columns';
+import Cover from 'components/Cover';
+import FormspreeForm from 'components/FormspreeForm';
+import Heading from 'components/Heading';
+import Paragraph from 'components/Paragraph';
+import PropertyFeatures from 'components/PropertyFeatures';
+import PropertySearch from 'components/PropertySearch';
+import Image from 'next/image';
+import { theme } from 'theme';
 
 const BlockRenderer = ({ blocks }) => {
-  console.log('BLOCKS: ', blocks)
+  console.log('BLOCKS: ', blocks);
   return blocks.map((block) => {
     switch (block.name) {
+      case 'acf/propertyfeatures': {
+        return (
+          <PropertyFeatures
+            key={block.id}
+            price={block.attributes.price}
+            bathrooms={block.attributes.bathrooms}
+            bedrooms={block.attributes.bedrooms}
+            hasParking={block.attributes.has_parking}
+            petFriendly={block.attributes.pet_friendly}
+          />
+        );
+      }
+
+      case 'acf/formspreeform': {
+        return (
+          <FormspreeForm
+            key={block.id}
+            formId={block.attributes.data.form_id}
+          />
+        );
+      }
+
       case 'acf/ctabutton': {
         return (
           <CallToActionButton
@@ -20,7 +44,7 @@ const BlockRenderer = ({ blocks }) => {
             buttonDestination={block.attributes.data.destination || '/'}
             buttonAlign={block.attributes.data.align}
           />
-        )
+        );
       }
       case 'core/columns': {
         return (
@@ -30,7 +54,7 @@ const BlockRenderer = ({ blocks }) => {
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Columns>
-        )
+        );
       }
       case 'core/column': {
         return (
@@ -40,10 +64,10 @@ const BlockRenderer = ({ blocks }) => {
               width={block.attributes.width}
             />
           </Column>
-        )
+        );
       }
       case 'core/image': {
-        console.log('IMAGE: ', block.attributes.url)
+        console.log('IMAGE: ', block.attributes.url);
         return (
           <Image
             key={block.id}
@@ -52,7 +76,7 @@ const BlockRenderer = ({ blocks }) => {
             height={block.attributes.height}
             width={block.attributes.width}
           />
-        )
+        );
       }
 
       case 'core/paragraph': {
@@ -67,7 +91,7 @@ const BlockRenderer = ({ blocks }) => {
             content={block.attributes.content}
             key={block.id}
           />
-        )
+        );
       }
       case 'core/post-title':
       case 'core/heading': {
@@ -78,14 +102,14 @@ const BlockRenderer = ({ blocks }) => {
             content={block.attributes.content}
             key={block.id}
           />
-        )
+        );
       }
       case 'core/block':
       case 'core/group': {
-        return <BlockRenderer key={block.id} blocks={block.innerBlocks} />
+        return <BlockRenderer key={block.id} blocks={block.innerBlocks} />;
       }
       case 'acf/propertysearch': {
-        return <PropertySearch key={block.id} />
+        return <PropertySearch key={block.id} />;
       }
       case 'core/cover': {
         return (
@@ -93,12 +117,13 @@ const BlockRenderer = ({ blocks }) => {
             {/* To render any innerBlocks inside of the "core/cover" */}
             <BlockRenderer blocks={block.innerBlocks} />
           </Cover>
-        )
+        );
       }
       default:
-        return null
+        console.log('UNKNOWN: ', block);
+        return null;
     }
-  })
-}
+  });
+};
 
-export default BlockRenderer
+export default BlockRenderer;

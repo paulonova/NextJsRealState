@@ -3,11 +3,12 @@ import {
   faBed,
   faCar,
   faDog,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
-import Link from 'next/link'
-import numeral from 'numeral'
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
+import Link from 'next/link';
+import numeral from 'numeral';
+
 
 export const PropertyCard = ({
   title,
@@ -67,5 +68,5 @@ export const PropertyCard = ({
         </div>
       )}
     </Link>
-  )
-}
+  );
+};

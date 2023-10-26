@@ -21,9 +21,42 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# FORM CONTACT US Formspree
+
+> Link: https://formspree.io
+
+# Wordpress Plugins:
+
+## Plugins:
+
+> Add WPGraphQL SEO
+
+> Advanced Custom Fields PRO
+
+> Custom Post Type UI
+
+> Disable Gutenberg Blocks - Block Manager
+
+> Font Awesome
+
+> Vercel Deploy Hooks
+
+> WP GraphQL Blocks ACF
+
+> WP GraphQL
+
+> WPGraphQL Blocks
+
+> WPGraphQL for Advanced Custom Fields
+
+> WPGraphQL Meta Query
+
+> WPGraphQL Offset Pagination
+
+> Yoast SEO
