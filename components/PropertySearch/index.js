@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Results } from './Results';
 import { Pagination } from './Pagination';
@@ -101,4 +100,3 @@ const PropertySearch = () => {
 };
 
 export default PropertySearch;
-
