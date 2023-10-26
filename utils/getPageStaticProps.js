@@ -1,10 +1,10 @@
-import { gql } from '@apollo/client'
-import client from 'client'
-import cleanAndTransformBlocks from 'utils/cleanAndTransformBlocks'
-import { mapMainMenuItems } from 'utils/mapMainMenuItems'
+import { gql } from '@apollo/client';
+import client from 'client';
+import cleanAndTransformBlocks from 'utils/cleanAndTransformBlocks';
+import { mapMainMenuItems } from 'utils/mapMainMenuItems';
 
 export const getPageStaticProps = async (context) => {
-  const uri = context.params?.slug ? `/${context.params.slug.join('/')}/` : '/'
+  const uri = context.params?.slug ? `/${context.params.slug.join('/')}/` : '/';
 
   const { data } = await client.query({
     query: gql`
@@ -14,11 +14,20 @@ export const getPageStaticProps = async (context) => {
             id
             title
             blocks
+            seo {
+              title
+              metaDesc
+            }
           }
+
           ... on Property {
             id
             title
             blocks
+            seo {
+              title
+              metaDesc
+            }
           }
         }
         acfOptionsMainMenu {
@@ -56,10 +65,11 @@ export const getPageStaticProps = async (context) => {
     variables: {
       uri,
     },
-  })
-  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocks)
+  });
+  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocks);
   return {
     props: {
+      seo: data.nodeByUri.seo,
       data,
       title: data.nodeByUri.title,
       mainMenuItems: mapMainMenuItems(
@@ -71,5 +81,5 @@ export const getPageStaticProps = async (context) => {
         data.acfOptionsMainMenu.mainMenu.callToActionButton.destination.uri,
       blocks,
     },
-  }
-}
+  };
+};
