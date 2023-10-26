@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import numeral from 'numeral';
 
+
 export const PropertyCard = ({
   title,
   destination,
