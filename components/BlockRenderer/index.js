@@ -3,6 +3,7 @@ import Column from 'components/Column';
 import Columns from 'components/Columns';
 import Cover from 'components/Cover';
 import FormspreeForm from 'components/FormspreeForm';
+import Gallery from 'components/Gallery';
 import Heading from 'components/Heading';
 import Paragraph from 'components/Paragraph';
 import PropertyFeatures from 'components/PropertyFeatures';
@@ -14,6 +15,16 @@ const BlockRenderer = ({ blocks }) => {
   console.log('BLOCKS: ', blocks);
   return blocks.map((block) => {
     switch (block.name) {
+      case 'core/gallery': {
+        return (
+          <Gallery
+            key={block.id}
+            columns={block.attributes.columns || 3} // 3 as a default col
+            cropImages={block.attributes.imageCrop}
+            items={block.innerBlocks}
+          />
+        );
+      }
       case 'acf/propertyfeatures': {
         return (
           <PropertyFeatures
@@ -47,10 +58,19 @@ const BlockRenderer = ({ blocks }) => {
         );
       }
       case 'core/columns': {
+        console.log('COLUMNS: ', block.attributes);
         return (
           <Columns
             key={block.id}
             isStackedOnMobile={block.attributes.isStackedOnMobile}
+            textColor={
+              theme[block.attributes.textColor] ||
+              block.attributes.style?.color?.text
+            }
+            backgroundColor={
+              theme[block.attributes.backgroundColor] ||
+              block.attributes.style?.color?.background
+            }
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Columns>
