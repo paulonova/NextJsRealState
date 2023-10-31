@@ -3,7 +3,6 @@ import MainMenu from 'components/Menu';
 import Head from 'next/head';
 
 export const Page = (props) => {
-  console.log('PAGE PROPS: ', props);
   return (
     <div>
       <Head>

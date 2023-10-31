@@ -1,11 +1,11 @@
-import { gql } from '@apollo/client'
-import client from 'client'
-import { Page } from 'components/Page'
-import { getPageStaticProps } from 'utils/getPageStaticProps'
+import { gql } from '@apollo/client';
+import client from 'client';
+import { Page } from 'components/Page';
+import { getPageStaticProps } from 'utils/getPageStaticProps';
 
-export default Page
+export default Page;
 
-export const getStaticProps = getPageStaticProps
+export const getStaticProps = getPageStaticProps;
 
 export const getStaticPaths = async () => {
   const { data } = await client.query({
@@ -26,9 +26,9 @@ export const getStaticPaths = async () => {
         }
       }
     `,
-  })
+  });
 
-  console.log("DATA: ", data)
+  console.log('DATA: ', data);
 
   return {
     paths: [...data?.pages?.nodes, ...data.properties.nodes]
@@ -39,8 +39,8 @@ export const getStaticPaths = async () => {
         },
       })),
     fallback: 'blocking',
-  }
-}
+  };
+};
 
 /**
  * FALLBACK: false or blocking
