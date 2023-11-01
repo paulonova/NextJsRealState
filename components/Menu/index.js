@@ -1,9 +1,8 @@
-import ButtonLink from 'components/ButtonLink'
-import Link from 'next/link'
-import { FaHouseUser, FaHeart } from 'react-icons/fa'
+import ButtonLink from 'components/ButtonLink';
+import Link from 'next/link';
+import { FaHouseUser, FaHeart } from 'react-icons/fa';
 
 const MainMenu = ({ items, callToActionLabel, callToActionDestination }) => {
-  console.log('MAIN MENU: ', items)
   return (
     <div className="bg-slate-800 text-white px-5 h-[64px] sticky top-0 z-20 flex">
       <div className="py-4 pl-5 flex text-pink-600">
@@ -44,7 +43,7 @@ const MainMenu = ({ items, callToActionLabel, callToActionDestination }) => {
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};
 
-export default MainMenu
+export default MainMenu;

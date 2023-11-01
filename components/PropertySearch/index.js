@@ -68,9 +68,6 @@ const PropertySearch = () => {
     minPrice,
     maxPrice,
   }) => {
-    /*
-    Update out browser url
-    */
     router.push(
       `${pathname}?page=1&petFriendly=${!!petFriendly}&hasParking=${hasParking}&minPrice=${minPrice}&maxPrice=${maxPrice}`
     );
@@ -83,7 +80,7 @@ const PropertySearch = () => {
       <Filters onSearch={handleSearch} />
       <Results properties={properties} />
       <Pagination
-        onPageClick={handlePageClick} // Callback function
+        onPageClick={handlePageClick}
         totalPages={Math.ceil(totalResults / pageSize)}
       />
     </div>

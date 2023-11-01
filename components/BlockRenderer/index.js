@@ -13,7 +13,6 @@ import Image from 'next/image';
 import { theme } from 'theme';
 
 const BlockRenderer = ({ blocks }) => {
-  console.log('BLOCKS: ', blocks);
   return blocks.map((block) => {
     switch (block.name) {
       case 'acf/tickitem': {
