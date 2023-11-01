@@ -27,8 +27,11 @@ async function rootLayout({ children }) {
   const data = await getMenu();
   console.log('DATA MENU: ', { data });
   return (
-    <html lang="en" className={`${poppins.className} ${aboreto.className}`}>
-      <body className="font-body">
+    <html
+      lang="en"
+      className={`${poppins.className} ${aboreto.className} font-normal`}
+    >
+      <body suppressHydrationWarning={true} className="font-body font-normal">
         <MainMenu
           callToActionDestination={data.callToActionDestination}
           callToActionLabel={data.callToActionLabel}
