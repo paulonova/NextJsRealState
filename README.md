@@ -70,3 +70,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 > import '@fortawesome/fontawesome-svg-core/styles.css';
 
 > config.autoAddCss = false;
+
+> DOC: https://fontawesome.com/docs/web/use-with/react/use-with
