@@ -60,3 +60,36 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 > WPGraphQL Offset Pagination
 
 > Yoast SEO
+
+# ESSUE - fontawesome
+
+- Essue because Server Render Side cause in fontawesome
+
+> import { config } from '@fortawesome/fontawesome-svg-core';
+
+> import '@fortawesome/fontawesome-svg-core/styles.css';
+
+> config.autoAddCss = false;
+
+> DOC: https://fontawesome.com/docs/web/use-with/react/use-with
+
+# Problems with Cache in Next js 14
+
+> Both Server router and Client router have cache and need to be revalidated after all updates.
+
+> When I change anything in Wordpress the NextJs save everything in cache and we need to create some kind of REVALIDATION of this data.
+
+- Solution:
+
+<ol>
+  <li> Create a folder "revalidate" inside of the [app] - [api] folder</li>
+  <li> Create a file named route.js</li>
+  <li> An api will be created to revalidate and empty the cache</li>
+  <li> Install a plugin in Wordpress (Vercel Deploy Hooks)</li>
+  <li> In setting, paste the api url and save</li>
+  <li> Problem solved...</li>
+</ol>
+
+> route.js - Will be responsible for clearing all cache from my site any time I update a Post in Wordpress.
+
+> An api will be created to revalidate and empty the cache. http://localhost:3000/api/revalidate
