@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 const Cover = ({ children, background }) => {
   return (
@@ -7,11 +7,12 @@ const Cover = ({ children, background }) => {
         alt="Cover"
         src={background}
         fill
+        priority
         className="mix-blend-soft-light object-cover"
       />
       <div className="max-w-5xl z-10">{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Cover
+export default Cover;
