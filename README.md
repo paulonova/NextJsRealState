@@ -60,3 +60,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 > WPGraphQL Offset Pagination
 
 > Yoast SEO
+
+# ESSUE - fontawesome
+
+- Essue because Server Render Side cause in fontawesome
+
+> import { config } from '@fortawesome/fontawesome-svg-core';
+
+> import '@fortawesome/fontawesome-svg-core/styles.css';
+
+> config.autoAddCss = false;

@@ -9,7 +9,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import numeral from 'numeral';
 
-
 export const PropertyCard = ({
   title,
   destination,
@@ -25,14 +24,14 @@ export const PropertyCard = ({
       className="border-2 border-slate-300 p-5 block bg-slate-100 hover:bg-slate-200"
       href={destination}
     >
-      <div className="flex w-full">
+      <div className="flex w-full h-[200px] relative">
         <Image
           src={image}
           alt="asd"
+          fill
+          sizes="300px"
           priority
-          height={200}
-          width={300}
-          style={{ objectFit: 'cover', height: '200px' }}
+          className="object-cover"
         />
       </div>
       <div className="mt-3 text-lg font-bold">{title}</div>
