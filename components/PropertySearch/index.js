@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 'use client';
->>>>>>> origin/feature/nextupdate
 import { useEffect, useState } from 'react';
 import { Results } from './Results';
 import { Pagination } from './Pagination';
